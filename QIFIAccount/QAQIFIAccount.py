@@ -371,10 +371,10 @@ class QIFI_Account():
         # self.ask_deposit(self.init_cash)
 
     def add_position(self, position):
+        code = self.format_code(position.code)
 
-        if position.instrument_id not in self.positions.keys():
-            self.positions[position.exchange_id +
-                           '.'+position.instrument_id] = position
+        if code not in self.positions.keys():
+            self.positions[code] = position
             return 0
         else:
             return 1
